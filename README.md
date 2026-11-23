@@ -2,7 +2,14 @@
 
 Panel de administración para un negocio pequeño que vende productos (con stock) y servicios. Registra ventas, catálogo, clientes y gastos; muestra indicadores y reportes mensuales; asigna roles al equipo y guarda un registro de cada cambio.
 
-Empieza vacío: no trae datos de ejemplo.
+En esta rama (`datos-de-prueba`), la primera vez que se abre en un navegador sin datos guardados carga un negocio de ejemplo:
+- 8 artículos, 2 de ellos con poco stock.
+- 8 clientes.
+- Unas 60 ventas de los últimos 2 meses, algunas por cobrar.
+- Gastos fijos y variables.
+- 4 miembros, uno por rol.
+
+Los datos salen de `src/datos/local/datosDePrueba.ts`. Para volver a cargarlos, borra los datos del sitio en el navegador. La rama `main` empieza vacía.
 
 ## Requisitos
 

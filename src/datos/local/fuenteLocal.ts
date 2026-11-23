@@ -2,6 +2,7 @@ import { PREFIJO_ALMACEN } from '../../config';
 import type { Colecciones, DatosNegocio, NombreColeccion, Venta } from '../../tipos/negocio';
 import { crearAdministradorInicial, type FuenteDatos } from '../fuente';
 import { validarAjustes, validarLista } from '../validar';
+import { crearDatosDePrueba } from './datosDePrueba';
 
 const CLAVE_AJUSTES = `${PREFIJO_ALMACEN}ajustes`;
 const CLAVE_CONTADOR_VENTAS = `${PREFIJO_ALMACEN}contador-ventas`;
@@ -63,6 +64,19 @@ function moverStock(lista: Colecciones['articulos'][], lineas: Venta['lineas'], 
   }
 }
 
+// Primera visita (sin ajustes ni equipo guardados): se cargan los datos de prueba
+function sembrarSiEstaVacio(): void {
+  if (localStorage.getItem(CLAVE_AJUSTES) !== null || localStorage.getItem(claveDe('miembros')) !== null) return;
+  const datos = crearDatosDePrueba();
+  const cambios: Record<string, string> = {
+    [CLAVE_AJUSTES]: JSON.stringify(datos.ajustes),
+    [CLAVE_CONTADOR_VENTAS]: JSON.stringify(numeroMayor(datos.ventas)),
+  };
+  const colecciones: NombreColeccion[] = ['articulos', 'clientes', 'ventas', 'gastos', 'miembros', 'cambios'];
+  for (const coleccion of colecciones) cambios[claveDe(coleccion)] = JSON.stringify(datos[coleccion]);
+  escribirTodo(cambios);
+}
+
 // Datos guardados en el navegador (modo sin Supabase)
 export function crearFuenteLocal(): FuenteDatos {
   return {
@@ -70,6 +84,7 @@ export function crearFuenteLocal(): FuenteDatos {
     registraCambiosEnServidor: false,
 
     async cargar(): Promise<DatosNegocio> {
+      sembrarSiEstaVacio();
       let miembros = leerLista('miembros');
       // El equipo empieza con un administrador
       if (miembros.length === 0) {
