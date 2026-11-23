@@ -11,6 +11,11 @@ En esta rama (`datos-de-prueba`), la primera vez que se abre en un navegador sin
 
 Los datos salen de `src/datos/local/datosDePrueba.ts`. Para volver a cargarlos, borra los datos del sitio en el navegador. La rama `main` empieza vacía.
 
+**Versión publicada:** https://dexter-mouser.github.io/pulso/
+- Cada push a `datos-de-prueba` la vuelve a publicar con el flujo `.github/workflows/pages.yml`: comprueba tipos, compila con la ruta `/pulso/` y sube `dist/` a GitHub Pages.
+- También se puede lanzar a mano desde la pestaña Actions.
+- Los datos que se crean en la versión publicada se guardan solo en el navegador de quien la usa.
+
 ## Requisitos
 
 - Node.js 18 o superior
