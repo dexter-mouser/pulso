@@ -1,0 +1,41 @@
+/* Barra de herramientas */
+.herramientas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-3);
+  margin-bottom: var(--espacio-4);
+}
+
+.herramientas > label:not(:first-child) {
+  width: 170px;
+}
+
+/* Contenedor de la tabla */
+.tarjeta {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-tarjeta);
+  padding: 20px;
+}
+
+/* Resumen de artículos truncado */
+.articulos {
+  display: inline-block;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+@media (max-width: 767px) {
+  .herramientas > label:not(:first-child) {
+    flex: 1 1 140px;
+    width: auto;
+  }
+
+  .tarjeta {
+    padding: var(--espacio-3);
+  }
+}

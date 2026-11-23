@@ -1,0 +1,37 @@
+/* Pantalla de acceso */
+.pantalla {
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  padding: var(--espacio-4);
+}
+
+.tarjeta {
+  width: min(380px, 100%);
+  padding: 32px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-tarjeta);
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--invertido);
+  color: var(--sobre-invertido);
+}
+
+.titulo {
+  font-size: var(--texto-xl);
+  font-weight: 600;
+}
+
+.mensaje {
+  min-height: 1.4em;
+  color: var(--texto-secundario);
+  font-size: var(--texto-s);
+}

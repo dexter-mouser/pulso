@@ -1,0 +1,48 @@
+/* Indicador */
+.kpi {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: var(--espacio-3);
+  row-gap: 2px;
+  padding: var(--espacio-4) var(--espacio-5);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-tarjeta);
+  background: var(--superficie);
+  transition: var(--transicion-tema), transform 0.2s, box-shadow 0.2s;
+}
+.kpi:hover { transform: translateY(-2px); box-shadow: var(--sombra); }
+
+.icono {
+  display: grid;
+  grid-row: span 4;
+  align-self: start;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--superficie-suave);
+  color: var(--texto-secundario);
+}
+
+.etiqueta {
+  color: var(--texto-secundario);
+  font-size: var(--texto-s);
+}
+
+.valor {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.detalle {
+  grid-column: 2;
+  color: var(--amarillo-texto);
+  font-size: var(--texto-xs);
+  font-weight: 600;
+}
+
+.variacion { grid-column: 2; font-size: var(--texto-xs); font-weight: 600; }
+.buena { color: var(--verde-texto); }
+.mala { color: var(--rojo-texto); }

@@ -1,0 +1,27 @@
+/* Pantalla de carga */
+.pantalla {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--espacio-2);
+  min-height: 100svh;
+  padding: var(--espacio-4);
+  text-align: center;
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--invertido);
+  color: var(--sobre-invertido);
+}
+
+.latiendo { animation: latido 1.4s ease-in-out infinite; }
+
+.nombre {
+  font-size: var(--texto-xl);
+  font-weight: 700;
+}

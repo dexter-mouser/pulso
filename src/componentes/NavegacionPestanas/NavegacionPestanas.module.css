@@ -1,0 +1,77 @@
+/* Contenedor con desplazamiento horizontal */
+.navegacion {
+  justify-self: center;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.navegacion::-webkit-scrollbar { display: none; }
+
+.lista {
+  position: relative;
+  display: flex;
+  gap: 2px;
+  padding: 4px;
+  width: max-content;
+}
+
+/* Píldora deslizante (se anima con clip-path) */
+.pildora {
+  position: absolute;
+  inset: 0;
+  background: var(--invertido);
+  clip-path: inset(0 100% 0 0 round 999px);
+  pointer-events: none;
+}
+
+/* Pestañas */
+.pestana {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  padding: 7px 14px;
+  border: 0;
+  border-radius: var(--radio-total);
+  background: transparent;
+  color: var(--texto-secundario);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.25s, background-color 0.15s;
+}
+.pestana:hover:not([aria-selected="true"]) {
+  background: var(--superficie-suave);
+  color: var(--texto);
+  transition-duration: 150ms;
+}
+.pestana[aria-selected="true"] { color: var(--sobre-invertido); }
+
+/* Insignia de conteo */
+.insignia {
+  padding: 1px 6px;
+  border-radius: var(--radio-total);
+  background: var(--superficie-suave);
+  color: var(--texto);
+  font-size: 11px;
+  font-weight: 600;
+}
+.amarilla { background: var(--amarillo); color: #111111; }
+
+/* Alto contraste: la píldora desaparece y la activa lleva contorno */
+@media (forced-colors: active) {
+  .pildora { display: none; }
+  .pestana[aria-selected="true"] { outline: 2px solid CanvasText; }
+  .insignia { border: 1px solid CanvasText; }
+}
+
+/* Tablet: segunda fila completa, alineada a la izquierda */
+@media (max-width: 1199px) {
+  .navegacion { grid-column: 1 / -1; grid-row: 2; justify-self: start; }
+}
+
+/* Móvil: ocupa todo el ancho y se desplaza */
+@media (max-width: 767px) {
+  .navegacion { justify-self: stretch; }
+}

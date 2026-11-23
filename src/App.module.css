@@ -1,0 +1,29 @@
+/* Contenedor general */
+.contenedor {
+  min-width: 320px;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: var(--espacio-5) var(--espacio-6) 40px;
+}
+
+/* Barra lateral + contenido */
+.cuerpo {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: var(--espacio-5);
+  align-items: start;
+}
+
+.contenido {
+  min-width: 0;
+}
+
+.panel:focus-visible {
+  outline-offset: 4px;
+  border-radius: var(--radio-tarjeta);
+}
+
+@media (max-width: 767px) {
+  .contenedor { padding: var(--espacio-4); }
+  .cuerpo { gap: var(--espacio-3); }
+}

@@ -1,0 +1,55 @@
+/* Selector de mes */
+.selector {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-2);
+}
+
+.nombreMes {
+  min-width: 130px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* KPIs */
+.indicadores {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--espacio-4);
+  margin-bottom: var(--espacio-4);
+}
+
+/* Tarjetas de bloque */
+.tarjeta {
+  min-width: 0;
+  margin-bottom: var(--espacio-4);
+  padding: var(--espacio-5);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-tarjeta);
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+  transition: var(--transicion-tema);
+}
+
+.titulo {
+  margin-bottom: var(--espacio-4);
+  font-size: var(--texto-m);
+  font-weight: 600;
+}
+
+.dos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--espacio-4);
+}
+.dos > .tarjeta { margin-bottom: 0; }
+
+@media (max-width: 1199px) {
+  .indicadores { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  .dos { grid-template-columns: minmax(0, 1fr); }
+  .tarjeta { padding: var(--espacio-4); }
+  .dos > .tarjeta { margin-bottom: var(--espacio-4); }
+}

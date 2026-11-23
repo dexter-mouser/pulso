@@ -1,0 +1,43 @@
+/* Barra de filtros */
+.barra {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px 160px;
+  gap: var(--espacio-3);
+  margin-bottom: var(--espacio-4);
+}
+
+.filtro { display: block; min-width: 0; }
+
+/* Tarjeta de la tabla */
+.tarjeta {
+  min-width: 0;
+  padding: var(--espacio-3) var(--espacio-5);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-tarjeta);
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+  transition: var(--transicion-tema);
+}
+
+.concepto { display: block; font-weight: 600; overflow-wrap: anywhere; }
+.notas { display: block; font-size: var(--texto-s); overflow-wrap: anywhere; }
+
+/* Total filtrado */
+.total {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  padding: var(--espacio-3) 0 var(--espacio-2);
+  border-top: 1px solid var(--borde);
+  font-size: var(--texto-base);
+}
+
+@media (max-width: 1199px) {
+  .barra { grid-template-columns: minmax(0, 1fr) 160px 150px; }
+}
+
+@media (max-width: 767px) {
+  .barra { grid-template-columns: 1fr 1fr; }
+  .barra > :first-child { grid-column: 1 / -1; }
+  .tarjeta { padding: var(--espacio-2) var(--espacio-4); }
+}

@@ -1,0 +1,72 @@
+/* Barra de filtros */
+.barra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-3);
+  margin-bottom: var(--espacio-4);
+}
+
+.segmentado {
+  display: inline-flex;
+  padding: 2px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-control);
+  background: var(--superficie);
+}
+
+.opcion {
+  min-height: 32px;
+  padding: 0 var(--espacio-3);
+  border: 0;
+  border-radius: calc(var(--radio-control) - 2px);
+  background: transparent;
+  color: var(--texto-secundario);
+  font: inherit;
+  font-size: var(--texto-m);
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.opcion:hover { color: var(--texto); }
+.opcion:focus-visible { outline: 2px solid var(--invertido); outline-offset: 1px; }
+.opcion[aria-pressed="true"] { background: var(--invertido); color: var(--sobre-invertido); }
+
+.casilla {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  font-size: var(--texto-m);
+  cursor: pointer;
+}
+
+.casilla input { accent-color: var(--invertido); }
+
+/* Tarjeta de la tabla */
+.tarjeta {
+  padding: 20px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-tarjeta);
+  background: var(--superficie);
+}
+
+/* Celdas */
+.nombre {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-2);
+}
+
+.textoNombre { font-weight: 500; }
+
+.stock {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--espacio-2);
+}
+
+@media (max-width: 767px) {
+  .tarjeta { padding: var(--espacio-3); }
+}

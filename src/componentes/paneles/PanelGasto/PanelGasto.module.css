@@ -1,0 +1,5 @@
+/* Agrupa los campos para deshabilitarlos juntos sin afectar el diseño */
+.grupo {
+  display: contents;
+  border: 0;
+}

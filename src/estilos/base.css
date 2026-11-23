@@ -1,0 +1,227 @@
+/* Base */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente);
+  font-size: var(--texto-base);
+  line-height: 1.4;
+  transition: var(--transicion-tema);
+}
+
+h1, h2, h3, p, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+:focus-visible { outline: 2px solid var(--invertido); outline-offset: 2px; }
+
+/* Iconos */
+.icono {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icono-pequeno { width: 14px; height: 14px; stroke-width: 2; }
+
+/* Texto solo para lectores de pantalla */
+.solo-lector {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Números alineados */
+.cifra { font-variant-numeric: tabular-nums; }
+
+/* Botón redondo de icono */
+.boton-icono {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--borde);
+  border-radius: 50%;
+  background: var(--superficie);
+  transition: var(--transicion-tema);
+}
+.boton-icono:hover { background: var(--superficie-suave); }
+.boton-mini { width: 28px; height: 28px; }
+
+/* Icono del botón de tema según el esquema mostrado */
+.boton-tema .icono-sol,
+.boton-tema .texto-a-claro { display: none; }
+
+:root:has(> head > meta[name="color-scheme"][content="dark"]) .boton-tema {
+  .icono-sol, .texto-a-claro { display: block; }
+  .icono-luna, .texto-a-oscuro { display: none; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:has(> head > meta[name="color-scheme"][content="light dark"]) .boton-tema {
+    .icono-sol, .texto-a-claro { display: block; }
+    .icono-luna, .texto-a-oscuro { display: none; }
+  }
+}
+
+/* Botones de texto */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-2);
+  min-height: 36px;
+  padding: 0 var(--espacio-4);
+  border: 1px solid transparent;
+  border-radius: var(--radio-total);
+  font-size: var(--texto-m);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.boton:active:not(:disabled) { transform: scale(0.97); }
+
+.boton-primario { background: var(--invertido); color: var(--sobre-invertido); }
+.boton-primario:hover:not(:disabled) { box-shadow: 0 6px 16px rgb(0 0 0 / 0.16); transform: translateY(-1px); }
+
+.boton-acento { background: var(--amarillo); color: #111111; }
+.boton-acento:hover:not(:disabled) { filter: brightness(1.04); transform: translateY(-1px); }
+
+.boton-secundario { border-color: var(--borde-fuerte); background: var(--superficie); color: var(--texto); }
+.boton-secundario:hover:not(:disabled) { background: var(--superficie-suave); }
+
+.boton-fantasma { background: transparent; color: var(--texto-secundario); }
+.boton-fantasma:hover:not(:disabled) { background: var(--superficie-suave); color: var(--texto); }
+
+.boton-peligro { background: transparent; color: var(--rojo-texto); }
+.boton-peligro:hover:not(:disabled) { background: var(--rojo-suave); }
+
+.boton-pequeno { min-height: 28px; padding: 0 var(--espacio-3); font-size: var(--texto-s); }
+
+/* Formularios */
+.formulario {
+  display: grid;
+  gap: var(--espacio-4);
+}
+
+.fila-campos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--espacio-3);
+}
+
+.campo {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.campo-etiqueta {
+  font-size: var(--texto-s);
+  font-weight: 600;
+}
+
+.campo-ayuda {
+  color: var(--texto-secundario);
+  font-size: var(--texto-s);
+}
+
+.campo-error {
+  color: var(--rojo-texto);
+  font-size: var(--texto-s);
+}
+
+.control {
+  width: 100%;
+  min-height: 40px;
+  padding: 0 var(--espacio-3);
+  border: 1px solid var(--borde-fuerte);
+  border-radius: var(--radio-control);
+  background: var(--superficie);
+  color: var(--texto);
+  font: inherit;
+  font-size: var(--texto-base);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+textarea.control { min-height: 84px; padding: var(--espacio-2) var(--espacio-3); resize: vertical; }
+.control:hover { border-color: var(--texto-secundario); }
+.control:focus-visible { outline: none; border-color: var(--invertido); box-shadow: 0 0 0 3px var(--anillo); }
+.control:user-invalid,
+.control[aria-invalid="true"] { border-color: var(--rojo-texto); }
+
+/* Etiquetas de estado */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  border-radius: var(--radio-total);
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.chip::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.chip-verde { background: var(--verde-suave); color: var(--verde-texto); }
+.chip-amarillo { background: var(--amarillo-suave); color: var(--amarillo-texto); }
+.chip-rojo { background: var(--rojo-suave); color: var(--rojo-texto); }
+.chip-gris { background: var(--superficie-suave); color: var(--texto-secundario); }
+
+/* Texto secundario y números */
+.texto-secundario { color: var(--texto-secundario); }
+.monto { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+
+/* Enlace para saltar al contenido */
+.saltar {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 50;
+  padding: var(--espacio-2) var(--espacio-4);
+  border-radius: var(--radio-total);
+  background: var(--invertido);
+  color: var(--sobre-invertido);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-150%);
+}
+.saltar:focus-visible { transform: none; }
+
+/* Alto contraste: los anillos con sombra desaparecen, se usa contorno */
+@media (forced-colors: active) {
+  .control:focus-visible,
+  :focus-visible { outline: 2px solid Highlight; outline-offset: 2px; }
+  .chip, .boton { border: 1px solid CanvasText; }
+}
+
+/* Animaciones compartidas */
+@keyframes latido {
+  50% { opacity: 0.35; }
+}
+
+@keyframes pulso-carga {
+  50% { opacity: 0.5; }
+}
+
+@keyframes brillo-carga {
+  from { background-position: 150% 0; }
+  to { background-position: -50% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

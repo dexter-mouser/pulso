@@ -1,0 +1,34 @@
+/* Estado vacío */
+.vacio {
+  display: grid;
+  justify-items: center;
+  gap: var(--espacio-1);
+  padding: 40px var(--espacio-4);
+  text-align: center;
+}
+
+.icono {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--espacio-2);
+  border-radius: 50%;
+  background: var(--superficie-suave);
+  color: var(--texto-secundario);
+}
+
+.titulo {
+  font-size: var(--texto-base);
+  font-weight: 600;
+}
+
+.texto {
+  max-width: 320px;
+  color: var(--texto-secundario);
+  font-size: var(--texto-m);
+}
+
+.accion {
+  margin-top: var(--espacio-3);
+}

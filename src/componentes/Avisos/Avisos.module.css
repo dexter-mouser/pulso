@@ -1,0 +1,43 @@
+/* Región de avisos */
+.region {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 40;
+}
+
+/* Aviso (popover manual) */
+.aviso {
+  position: fixed;
+  inset: auto 16px auto auto;
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  max-width: min(380px, calc(100vw - 32px));
+  margin: 0;
+  padding: 10px 10px 10px 16px;
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  background: var(--invertido);
+  color: var(--sobre-invertido);
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.2);
+  transition: bottom 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+@starting-style {
+  .aviso { opacity: 0; transform: translateY(8px) scale(0.98); }
+}
+
+.aviso :global(.boton-icono) {
+  border-color: transparent;
+  background: transparent;
+  color: inherit;
+}
+
+.error { background: var(--rojo); color: #ffffff; }
+
+.texto {
+  flex: 1;
+  font-size: var(--texto-m);
+  font-weight: 500;
+}

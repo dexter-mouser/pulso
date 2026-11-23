@@ -1,0 +1,61 @@
+/* Tokens de diseño */
+:root {
+  color-scheme: light dark;
+
+  /* El tema elegido se refleja en <meta name="color-scheme"> */
+  &:has(> head > meta[name="color-scheme"][content="dark"]) { color-scheme: dark; }
+  &:has(> head > meta[name="color-scheme"][content="light"]) { color-scheme: light; }
+
+  /* Colores */
+  --fondo: light-dark(#f6f6f4, #0e0e10);
+  --superficie: light-dark(#ffffff, #18181b);
+  --superficie-suave: light-dark(#f1f1ef, #232327);
+  --texto: light-dark(#111111, #f4f4f5);
+  --texto-secundario: light-dark(#6b6b6b, #a1a1aa);
+  --borde: light-dark(rgb(0 0 0 / 0.06), rgb(255 255 255 / 0.08));
+  --invertido: light-dark(#111111, #f4f4f5);
+  --sobre-invertido: light-dark(#ffffff, #111111);
+  --destacada: light-dark(#111111, #232327);
+  --amarillo: #f5c542;
+  --verde: #15803d;
+  --verde-vivo: #22c55e;
+  --rojo: #dc2626;
+  --rojo-suave: light-dark(#fee2e2, #3b0d0d);
+  --rojo-texto: light-dark(#b91c1c, #fca5a5);
+  --verde-suave: light-dark(#dcfce7, #10291a);
+  --verde-texto: light-dark(#166534, #86efac);
+  --amarillo-suave: light-dark(#fef3c7, #2e2408);
+  --amarillo-texto: light-dark(#92400e, #fcd34d);
+  /* Borde de controles: contraste mínimo 3:1 */
+  --borde-fuerte: light-dark(#8c8c8c, #71717a);
+  --anillo: light-dark(rgb(17 17 17 / 0.12), rgb(244 244 245 / 0.18));
+  --azul: #3b82f6;
+
+  /* Forma */
+  --radio-tarjeta: 24px;
+  --radio-destacada: 20px;
+  --radio-control: 10px;
+  --radio-total: 999px;
+  --sombra: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.04);
+
+  /* Espaciado (base 4px) */
+  --espacio-1: 4px;
+  --espacio-2: 8px;
+  --espacio-3: 12px;
+  --espacio-4: 16px;
+  --espacio-5: 20px;
+  --espacio-6: 24px;
+
+  /* Tipografía */
+  --fuente: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --texto-xs: 11px;
+  --texto-s: 12px;
+  --texto-m: 13px;
+  --texto-base: 14px;
+  --texto-l: 16px;
+  --texto-xl: 20px;
+  --texto-titulo: 32px;
+
+  /* Movimiento */
+  --transicion-tema: background-color 0.25s, color 0.25s, border-color 0.25s;
+}

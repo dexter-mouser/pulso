@@ -1,0 +1,37 @@
+/* Esqueleto con brillo que recorre las barras */
+.esqueleto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+}
+
+.barra {
+  height: 14px;
+  border-radius: var(--radio-total);
+  background: linear-gradient(90deg, var(--superficie-suave) 30%, var(--superficie) 50%, var(--superficie-suave) 70%);
+  background-size: 300% 100%;
+  animation: brillo-carga 1.6s ease-in-out infinite;
+}
+.barra:first-child { height: 120px; border-radius: var(--radio-destacada); }
+.barra:last-child:not(:first-child) { width: 60%; }
+
+/* Error */
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-2);
+  color: var(--texto-secundario);
+  font-size: var(--texto-m);
+}
+
+.reintentar {
+  padding: 6px 14px;
+  border: 0;
+  border-radius: var(--radio-total);
+  background: var(--invertido);
+  color: var(--sobre-invertido);
+  font-size: var(--texto-s);
+  font-weight: 600;
+}
+.reintentar:hover { filter: brightness(1.1); }

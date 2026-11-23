@@ -1,0 +1,45 @@
+/* Tabla de datos */
+.marco {
+  overflow-x: auto;
+}
+.marco:focus-visible { outline-offset: 2px; }
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--texto-m);
+}
+
+.tabla th {
+  padding: 0 var(--espacio-3) var(--espacio-3);
+  color: var(--texto-secundario);
+  font-size: var(--texto-s);
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.tabla td {
+  padding: var(--espacio-3);
+  border-top: 1px solid var(--borde);
+  vertical-align: middle;
+}
+
+.tabla tbody tr {
+  transition: background-color 0.15s;
+}
+.tabla tbody tr:hover { background: var(--superficie-suave); }
+
+.tabla th:first-child,
+.tabla td:first-child { padding-left: var(--espacio-2); }
+
+.fin { text-align: right !important; }
+
+.acciones {
+  display: inline-flex;
+  gap: var(--espacio-1);
+}
+
+@media (max-width: 767px) {
+  .secundaria { display: none; }
+}

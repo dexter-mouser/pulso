@@ -1,0 +1,126 @@
+/* Bloque de líneas */
+.lineas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.agregar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 84px auto;
+  align-items: end;
+  gap: var(--espacio-2);
+}
+
+.cantidadNueva {
+  min-width: 0;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-control);
+}
+
+.linea {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-2);
+  padding: var(--espacio-2) var(--espacio-3);
+}
+
+.linea + .linea {
+  border-top: 1px solid var(--borde);
+}
+
+.nombre {
+  display: flex;
+  flex: 1 1 140px;
+  flex-direction: column;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.detalle {
+  font-size: var(--texto-s);
+}
+
+.edicion {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-2);
+}
+
+.cantidad {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cantidad > span {
+  min-width: 24px;
+  text-align: center;
+}
+
+.precio {
+  width: 92px;
+}
+
+.subtotal {
+  min-width: 70px;
+  text-align: right;
+}
+
+.aviso {
+  flex-basis: 100%;
+  margin: 0;
+}
+
+/* Resumen de totales */
+.resumen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  margin: 0;
+  padding: var(--espacio-3);
+  background: var(--superficie-suave);
+  border-radius: var(--radio-control);
+}
+
+.filaResumen {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  font-size: var(--texto-s);
+  color: var(--texto-secundario);
+}
+
+.filaResumen dd {
+  margin: 0;
+}
+
+.total {
+  padding-top: var(--espacio-2);
+  border-top: 1px solid var(--borde);
+  font-size: var(--texto-l);
+  color: var(--texto);
+}
+
+@media (max-width: 767px) {
+  .agregar {
+    grid-template-columns: minmax(0, 1fr) 76px;
+  }
+
+  .agregar > button {
+    grid-column: 1 / -1;
+  }
+}

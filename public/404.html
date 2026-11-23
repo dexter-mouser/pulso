@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Página no encontrada · Pulso</title>
+  <style>
+    /* Colores del panel */
+    :root {
+      color-scheme: light dark;
+      --fondo: light-dark(#f6f6f4, #0e0e10);
+      --texto: light-dark(#111111, #f4f4f5);
+      --texto-secundario: light-dark(#6b6b6b, #a1a1aa);
+      --invertido: light-dark(#111111, #f4f4f5);
+      --sobre-invertido: light-dark(#ffffff, #111111);
+    }
+
+    body {
+      display: grid;
+      place-content: center;
+      justify-items: center;
+      gap: 8px;
+      min-height: 100svh;
+      margin: 0;
+      padding: 16px;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      text-align: center;
+    }
+
+    h1 { margin: 0; font-size: 28px; }
+    p { margin: 0 0 12px; color: var(--texto-secundario); }
+
+    a {
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--invertido);
+      color: var(--sobre-invertido);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    a:focus-visible { outline: 2px solid var(--texto); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <h1>Página no encontrada</h1>
+  <p>La dirección no existe o cambió.</p>
+  <a href="/">Volver al panel</a>
+</body>
+</html>

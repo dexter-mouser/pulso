@@ -1,0 +1,48 @@
+/* Grupos del formulario */
+.grupo,
+.campos {
+  display: grid;
+  gap: var(--espacio-4);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.grupo legend {
+  padding: 0;
+  margin-bottom: 6px;
+}
+
+.opciones {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--espacio-3);
+}
+
+/* Opción de tipo: tarjeta seleccionable */
+.opcion {
+  display: flex;
+  gap: var(--espacio-2);
+  align-items: flex-start;
+  padding: var(--espacio-3);
+  border: 1px solid var(--borde-fuerte);
+  border-radius: var(--radio-control);
+  cursor: pointer;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.opcion:hover { background: var(--superficie-suave); }
+.opcion:has(input:checked) { border-color: var(--invertido); }
+.opcion:has(input:focus-visible) { outline: 2px solid var(--invertido); outline-offset: 2px; }
+.opcion input { margin-top: 3px; accent-color: var(--invertido); }
+.opcion > span { display: grid; gap: 2px; }
+
+.opcionTitulo {
+  font-size: var(--texto-m);
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .opciones { grid-template-columns: 1fr; }
+}

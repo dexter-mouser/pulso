@@ -1,0 +1,10 @@
+/* Panel de ajustes */
+.contenedor { display: grid; gap: var(--espacio-6); }
+.encabezado {
+  margin: 0 0 var(--espacio-2);
+  color: var(--texto-secundario);
+  font-size: var(--texto-s);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
