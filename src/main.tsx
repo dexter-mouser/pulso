@@ -6,8 +6,10 @@ import { createRoot } from 'react-dom/client';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { Arranque } from './componentes/Arranque/Arranque';
+import { iniciarEscalaPantalla } from './utilidades/escalaPantalla';
 
 gsap.registerPlugin(useGSAP);
+iniciarEscalaPantalla();
 
 const raiz = document.getElementById('raiz');
 if (!raiz) throw new Error('No existe el elemento #raiz');
