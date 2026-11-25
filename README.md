@@ -135,6 +135,8 @@ Al abrir el panel aparece la pantalla de acceso con correo y contraseña.
 - **Publicar:** el hosting debe enviar `Content-Security-Policy` (con el dominio de Supabase y Google Fonts en las fuentes permitidas) y `frame-ancestors 'none'`.
 - El modo Supabase todavía no está probado contra un proyecto real.
 
+**Pantallas grandes.** El contenido mide como máximo 1200 px. En ventanas más anchas, `src/utilidades/escalaPantalla.ts` calcula una escala (`--escala`) y el contenedor crece en proporción con `zoom`, hasta 1600 px. Los paneles deslizantes y los avisos quedan fuera del contenedor y no se escalan.
+
 **Paneles deslizantes.** `PanelDeslizante` es un `<dialog>` modal que entra desde la izquierda con desplazamiento y anclaje (`scroll-snap`): se puede arrastrar para cerrarlo, y también se cierra con Esc, con un clic fuera o con la X. `GestorPaneles` lo mantiene montado mientras termina la animación de cierre.
 
 **Animaciones** (con GSAP; se desactivan con `prefers-reduced-motion`):

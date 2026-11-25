@@ -4,6 +4,8 @@
   max-width: 1200px;
   margin-inline: auto;
   padding: var(--espacio-5) var(--espacio-6) 40px;
+  /* Crece en proporción en pantallas grandes (src/utilidades/escalaPantalla.ts) */
+  zoom: var(--escala, 1);
 }
 
 /* Barra lateral + contenido */

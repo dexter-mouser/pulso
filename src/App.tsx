@@ -90,31 +90,34 @@ export function App({ onCerrarSesion }: { onCerrarSesion?: () => void }) {
     });
   });
 
+  // Paneles y avisos quedan fuera del contenedor para que no se escalen con él
   return (
-    <div className={estilos.contenedor}>
-      <BarraSuperior
-        pestanas={pestanas}
-        idActiva={idActiva}
-        onCambiar={cambiarVista}
-        totalAvisos={pendientes + conPocoStock}
-        onCerrarSesion={onCerrarSesion}
-      />
-      <div className={estilos.cuerpo}>
-        <BarraLateral />
-        <main ref={contenidoRef} className={estilos.contenido}>
-          <div
-            id="panel-vista"
-            className={estilos.panel}
-            role="tabpanel"
-            aria-labelledby={`pestana-${vistaMostrada.id}`}
-            tabIndex={0}
-          >
-            <Vista key={vistaMostrada.id} />
-          </div>
-        </main>
+    <>
+      <div className={estilos.contenedor}>
+        <BarraSuperior
+          pestanas={pestanas}
+          idActiva={idActiva}
+          onCambiar={cambiarVista}
+          totalAvisos={pendientes + conPocoStock}
+          onCerrarSesion={onCerrarSesion}
+        />
+        <div className={estilos.cuerpo}>
+          <BarraLateral />
+          <main ref={contenidoRef} className={estilos.contenido}>
+            <div
+              id="panel-vista"
+              className={estilos.panel}
+              role="tabpanel"
+              aria-labelledby={`pestana-${vistaMostrada.id}`}
+              tabIndex={0}
+            >
+              <Vista key={vistaMostrada.id} />
+            </div>
+          </main>
+        </div>
       </div>
       <GestorPaneles />
       <Avisos />
-    </div>
+    </>
   );
 }
