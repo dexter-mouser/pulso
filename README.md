@@ -2,7 +2,7 @@
 
 Panel de administración para un negocio pequeño que vende productos (con stock) y servicios. Registra ventas, catálogo, clientes y gastos; muestra indicadores y reportes mensuales; asigna roles al equipo y guarda un registro de cada cambio.
 
-En esta rama (`datos-de-prueba`), la primera vez que se abre en un navegador sin datos guardados carga un negocio de ejemplo:
+En esta rama (`datos-de-prueba`), la primera vez que se abre en un navegador sin datos del negocio guardados (artículos, clientes, ventas o gastos) carga un negocio de ejemplo:
 - 8 artículos, 2 de ellos con poco stock.
 - 8 clientes.
 - Unas 60 ventas de los últimos 2 meses, algunas por cobrar.

@@ -6,6 +6,7 @@ import { crearDatosDePrueba } from './datosDePrueba';
 
 const CLAVE_AJUSTES = `${PREFIJO_ALMACEN}ajustes`;
 const CLAVE_CONTADOR_VENTAS = `${PREFIJO_ALMACEN}contador-ventas`;
+const CLAVE_DATOS_SEMBRADOS = `${PREFIJO_ALMACEN}datos-de-prueba`;
 
 function claveDe(coleccion: NombreColeccion): string {
   return `${PREFIJO_ALMACEN}${coleccion}`;
@@ -64,13 +65,25 @@ function moverStock(lista: Colecciones['articulos'][], lineas: Venta['lineas'], 
   }
 }
 
-// Primera visita (sin ajustes ni equipo guardados): se cargan los datos de prueba
+// Hay datos del negocio guardados (el administrador inicial y los ajustes no cuentan)
+function tieneDatosDeNegocio(): boolean {
+  const colecciones: NombreColeccion[] = ['articulos', 'clientes', 'ventas', 'gastos'];
+  return colecciones.some((coleccion) => leerLista(coleccion).length > 0);
+}
+
+// Los datos de prueba se cargan una sola vez, si el navegador no tiene datos del negocio.
+// También vale para quien abrió antes la versión vacía, que solo guarda el administrador inicial.
 function sembrarSiEstaVacio(): void {
-  if (localStorage.getItem(CLAVE_AJUSTES) !== null || localStorage.getItem(claveDe('miembros')) !== null) return;
+  if (localStorage.getItem(CLAVE_DATOS_SEMBRADOS) !== null) return;
+  if (tieneDatosDeNegocio()) {
+    localStorage.setItem(CLAVE_DATOS_SEMBRADOS, 'no');
+    return;
+  }
   const datos = crearDatosDePrueba();
   const cambios: Record<string, string> = {
     [CLAVE_AJUSTES]: JSON.stringify(datos.ajustes),
     [CLAVE_CONTADOR_VENTAS]: JSON.stringify(numeroMayor(datos.ventas)),
+    [CLAVE_DATOS_SEMBRADOS]: 'si',
   };
   const colecciones: NombreColeccion[] = ['articulos', 'clientes', 'ventas', 'gastos', 'miembros', 'cambios'];
   for (const coleccion of colecciones) cambios[claveDe(coleccion)] = JSON.stringify(datos[coleccion]);
