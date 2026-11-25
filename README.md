@@ -17,6 +17,12 @@ npm run build     # comprueba tipos y genera dist/
 npm run preview   # sirve la versión compilada
 ```
 
+## Publicación
+
+Se publica en GitHub Pages: https://dexter-mouser.github.io/pulso/
+
+Cada push a `main` lo compila y publica `.github/workflows/deploy.yml`. Por eso `vite.config.ts` usa `base: '/pulso/'`. GitHub Pages no tiene las claves de Supabase, así que el sitio funciona en modo local.
+
 ## Tecnología
 
 - React 18 y Vite 5.
