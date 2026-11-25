@@ -15,6 +15,7 @@ Los datos salen de `src/datos/local/datosDePrueba.ts`. Para volver a cargarlos, 
 - Cada push a `datos-de-prueba` la vuelve a publicar con el flujo `.github/workflows/pages.yml`: comprueba tipos, compila con la ruta `/pulso/` y sube `dist/` a GitHub Pages.
 - También se puede lanzar a mano desde la pestaña Actions.
 - Los datos que se crean en la versión publicada se guardan solo en el navegador de quien la usa.
+- `main` solo se publica a mano con `.github/workflows/deploy.yml` y reemplaza a esta versión.
 
 ## Requisitos
 
@@ -28,12 +29,6 @@ npm run dev       # servidor de desarrollo
 npm run build     # comprueba tipos y genera dist/
 npm run preview   # sirve la versión compilada
 ```
-
-## Publicación
-
-Se publica en GitHub Pages: https://dexter-mouser.github.io/pulso/
-
-El sitio publicado es la rama `datos-de-prueba`, que se publica en cada push con `.github/workflows/pages.yml`. `main` solo se publica a mano, desde la pestaña Actions, con `.github/workflows/deploy.yml`, y reemplaza al sitio de la otra rama. `vite.config.ts` usa `base: '/pulso/'`. GitHub Pages no tiene las claves de Supabase, así que el sitio funciona en modo local.
 
 ## Tecnología
 
