@@ -59,7 +59,7 @@ export function BarraSuperior({ pestanas, idActiva, onCambiar, totalAvisos, onCe
   return (
     <header className={estilos.barra}>
       <a className="saltar" href="#panel-vista">Saltar al contenido</a>
-      <a className={estilos.logo} href="/">
+      <a className={estilos.logo} href={import.meta.env.BASE_URL}>
         <span className={estilos.marca}><Icono nombre="logo" /></span>
         {NOMBRE_APP}
       </a>
