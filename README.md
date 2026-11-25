@@ -21,7 +21,7 @@ npm run preview   # sirve la versión compilada
 
 Se publica en GitHub Pages: https://dexter-mouser.github.io/pulso/
 
-Cada push a `main` lo compila y publica `.github/workflows/deploy.yml`. Por eso `vite.config.ts` usa `base: '/pulso/'`. GitHub Pages no tiene las claves de Supabase, así que el sitio funciona en modo local.
+El sitio publicado es la rama `datos-de-prueba`, que se publica en cada push con `.github/workflows/pages.yml`. `main` solo se publica a mano, desde la pestaña Actions, con `.github/workflows/deploy.yml`, y reemplaza al sitio de la otra rama. `vite.config.ts` usa `base: '/pulso/'`. GitHub Pages no tiene las claves de Supabase, así que el sitio funciona en modo local.
 
 ## Tecnología
 

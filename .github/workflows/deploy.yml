@@ -1,9 +1,7 @@
-# Compila y publica en GitHub Pages en cada push a main
-name: Publicar en GitHub Pages
+# Publica main en GitHub Pages solo a mano: el sitio publicado es la rama datos-de-prueba
+name: Publicar main en GitHub Pages (manual)
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
